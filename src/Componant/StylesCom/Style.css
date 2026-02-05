@@ -1,0 +1,16 @@
+.profileCon {
+  border: solid 1px #ccc;
+  padding: 5px;
+  width: 200px;
+  border-radius: 10px;
+  margin: 15px;
+}
+.profileImg {
+  width: 150px;
+}
+.profileName {
+  font-size: 1.5rem;
+}
+.profileLocation {
+  color: orange;
+}

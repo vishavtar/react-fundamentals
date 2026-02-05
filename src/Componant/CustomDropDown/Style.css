@@ -1,0 +1,61 @@
+.DropDownCon {
+  border: solid 1px #ccc;
+  position: relative;
+  user-select: none;
+  width: 220px;
+  &::after {
+    content: "^";
+    position: absolute;
+    right: 10px;
+    top: 0;
+  }
+}
+.DropDownSelect {
+  background-color: #ccc;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.DropDownList {
+  padding: 0;
+  margin: 0;
+  /* display: none; */
+  list-style: none;
+  cursor: pointer;
+  :hover {
+    background-color: rgb(252, 237, 220);
+  }
+  .active:nth-child(odd) {
+    background-color: #b2ddf9;
+  }
+  .active:nth-child(even) {
+    background-color: #79c6fe;
+  }
+}
+.batches {
+  padding: 5px;
+  border: none;
+  position: relative;
+  margin: 5px;
+  /* padding-right: 15px; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #00bbff;
+  color: #ffffff;
+  font-weight: bold;
+}
+.batches:after {
+  content: "x";
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: bold;
+  height: 18px;
+  width: 18px;
+  background-color: red;
+  margin-left: 5px;
+  border-radius: 10px;
+  justify-content: center;
+}
