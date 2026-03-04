@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Studant from "./Studant";
+import Studant from "./Props/Studant";
 
 function UseStates() {
   const [studant, setStudant] = useState("Rajveer 01");

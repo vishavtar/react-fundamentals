@@ -3,6 +3,7 @@ import "./Style.css";
 function MultiSelectDropDown() {
   const [selection, setSelection] = useState(false);
   const [selectedList, setselectedList] = useState([]);
+  const dropDownListControl = useRef();
   const listClickItem = (event) => {
     const eventItems = event.target.closest("li");
 
@@ -22,6 +23,22 @@ function MultiSelectDropDown() {
       selectedList.filter((item) => item !== event.target.innerText),
     );
   }
+  function listActivecalss() {
+    if (dropDownListControl.current) {
+      const htmlList = dropDownListControl.current.children;
+      Array.from(htmlList).forEach((li) => {
+        if (selectedList.includes(li.innerText)) {
+          li.classList.add("active");
+        } else {
+          li.classList.remove("active");
+        }
+      });
+    }
+  }
+
+  useEffect(() => {
+    listActivecalss();
+  }, [!selection, selectedList]);
 
   return (
     <div
@@ -39,20 +56,21 @@ function MultiSelectDropDown() {
         >
           Select Multiple Options
         </div>
-
-        <ul className="DropDownList" onClick={(event) => listClickItem(event)}>
-          {selection ? (
-            <>
-              <li value={"Jeans"}>Jeans</li>
-              <li value={"t_shirts"}>T-shirts</li>
-              <li value={"formal_shirts"}>Formal Shirts</li>
-              <li value={"formal_pant"}>Formal Pant</li>
-              <li value={"casual_shirts"}>Casual Shirts</li>
-              <li value={"casual_pants"}>Casual Pants</li>
-              <li value={"trouser"}>Trouser</li>
-            </>
-          ) : null}
-        </ul>
+        {selection ? (
+          <ul
+            className="DropDownList"
+            onClick={(event) => listClickItem(event)}
+            ref={dropDownListControl}
+          >
+            <li value={"Jeans"}>Jeans</li>
+            <li value={"t_shirts"}>T-shirts</li>
+            <li value={"formal_shirts"}>Formal Shirts</li>
+            <li value={"formal_pant"}>Formal Pant</li>
+            <li value={"casual_shirts"}>Casual Shirts</li>
+            <li value={"casual_pants"}>Casual Pants</li>
+            <li value={"trouser"}>Trouser</li>
+          </ul>
+        ) : null}
       </div>
       <div>
         {selectedList.length > 0

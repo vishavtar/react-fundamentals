@@ -12,6 +12,7 @@ function GetInputFildVal() {
   }
   return (
     <div>
+      <div>Get value from Input and Clear </div>
       <input
         type="text"
         value={value}
